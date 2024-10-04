@@ -4,13 +4,12 @@ import os
 import asyncio
 from discord import Embed
 
-# Bot prefix, you can change this to whatever you want
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 
 @bot.event
 async def on_ready() -> None:
     print(f"Logged in as {bot.user}")
-    await bot.tree.sync()  # Sync the slash commands with Discord
+    await bot.tree.sync() 
 
 @bot.command(name='list_commands', help="Lists all registered commands")
 async def list_commands(ctx):
@@ -22,7 +21,7 @@ async def list_commands(ctx):
 @bot.command(name='reload_cogs', help="Reloads all cogs or a specific cog")
 async def reload_cogs(ctx: commands.Context, cog_name: str = None):
     if cog_name:
-        # Reload specific cog
+        
         cog_path = f'cogs.{cog_name}'
         try:
             await bot.reload_extension(cog_path)
@@ -53,7 +52,7 @@ async def load_cogs():
 
 async def main():
     await load_cogs()
-    await bot.start('ODA5NzU3MTkyODM1NDMyNDg4.GOvzH0.pULCPvweqjGIzWyg5_IhAgy1X2I3XhFLuT55y0')  # Replace with your bot token
+    await bot.start('TOKEN')  
 
 if __name__ == "__main__":
     try:
