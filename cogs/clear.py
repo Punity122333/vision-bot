@@ -14,7 +14,7 @@ class Clear(commands.Cog):
             return
 
         deleted = await ctx.channel.purge(limit=amount + 1)
-        await asyncio.sleep(0.5) #Delay to prevent bot from deleting its own deletion message
+        await asyncio.sleep(0.5)# +1 to include the command message itself
         await ctx.send(f"Deleted {len(deleted) - 1} messages.", delete_after=5)
 
 async def setup(bot: commands.Bot):
