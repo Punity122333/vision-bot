@@ -1,5 +1,7 @@
 import discord
 from discord.ext import commands
+# The `PingCog` class defines a Discord bot cog that provides a command to display the bot's latency
+# in milliseconds.
 
 class PingCog(commands.Cog):
     def __init__(self, bot: commands.Bot) -> None:
